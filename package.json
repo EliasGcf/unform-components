@@ -1,7 +1,7 @@
 {
   "name": "@eliasgcf/unform-components",
   "version": "1.0.0",
-  "description": "Made with create-react-library",
+  "description": "React Components to use with Unform",
   "author": "EliasGcf",
   "license": "MIT",
   "repository": "EliasGcf/unform-components",
