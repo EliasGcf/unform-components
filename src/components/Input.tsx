@@ -1,8 +1,8 @@
-import React, { InputHTMLAttributes, useEffect, useRef } from 'react'
+import React, { InputHTMLAttributes, useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  name: string
+  name: string;
 }
 
 const Input: React.FC<InputProps> = ({ name, ...rest }) => {
@@ -18,8 +18,7 @@ const Input: React.FC<InputProps> = ({ name, ...rest }) => {
     });
   }, [fieldName, registerField]);
 
+  return <input ref={inputRef} type="text" {...rest} />;
+};
 
-  return <input ref={inputRef} type="text" {...rest} />
-}
-
-export default Input
+export default Input;
