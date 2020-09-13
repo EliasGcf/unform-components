@@ -6,9 +6,9 @@
   "author": "Elias Gabriel <eliasgabrielcf@gmail.com>",
   "homepage": "https://github.com/EliasGcf/unform-components#readme",
   "license": "MIT",
-  "main": "dist/components/index.js",
+  "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "source": "src/components/index.ts",
+  "source": "lib/index.ts",
   "engines": {
     "node": ">=10"
   },
