@@ -1,31 +1,18 @@
 {
-  "name": "@eliasgcf/unform-components",
-  "version": "0.0.2",
-  "private": false,
-  "description": "React Components to use with Unform",
-  "author": "Elias Gabriel <eliasgabrielcf@gmail.com>",
-  "homepage": "https://github.com/EliasGcf/unform-components#readme",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
-  "source": "lib/index.ts",
-  "engines": {
-    "node": ">=10"
+  "name": "unform-components",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
-    "prepare": "run-s build",
-    "test": "run-s test:unit test:build",
-    "test:build": "run-s build",
-    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom"
-  },
-  "peerDependencies": {
-    "@unform/core": "^2.1.3",
-    "react": "^16.8.0"
+    "web": "yarn workspace @eliasgcf/unform-components-web",
+    "mobile": "yarn workspace @eliasgcf/unform-components-mobile"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.6",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -33,6 +20,7 @@
     "@types/node": "^12.12.38",
     "@types/react": "^16.9.27",
     "@types/react-dom": "^16.9.7",
+    "@types/react-native": "^0.63.18",
     "@typescript-eslint/eslint-plugin": "^4.1.0",
     "@typescript-eslint/parser": "^4.1.0",
     "@unform/core": "^2.1.3",
@@ -46,22 +34,11 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4",
-    "microbundle-crl": "^0.13.10",
-    "npm-run-all": "^4.1.5",
     "prettier": "^2.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-native": "^0.63.2",
     "react-scripts": "^3.4.1",
     "typescript": "^3.7.5"
-  },
-  "files": [
-    "dist"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EliasGcf/unform-components.git"
-  },
-  "bugs": {
-    "url": "https://github.com/EliasGcf/unform-components/issues"
   }
 }
