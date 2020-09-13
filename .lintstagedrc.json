@@ -1,5 +1,5 @@
 {
-  "src/**/*.ts": [
+  "packages/**/*.ts": [
     "eslint --ext ts --fix"
   ]
 }
