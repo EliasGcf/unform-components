@@ -20,7 +20,7 @@
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true,
     "target": "es5",
-    "allowJs": true,
+    "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -28,9 +28,7 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": [
-    "lib"
-  ],
+  "include": ["lib"],
   "exclude": [
     "node_modules",
     "dist",
