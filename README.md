@@ -1,28 +1,52 @@
-# @eliasgcf/unform-components
+# @eliasgcf/unform-components-(web || mobile)
 
 > Made with create-react-library
 
-[![NPM](https://img.shields.io/npm/v/@eliasgcf/unform-components.svg)](https://www.npmjs.com/package/@eliasgcf/unform-components) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
 ## Install
 
+### Web (ReactJS)
+
 ```bash
-npm install --save @eliasgcf/unform-components
+# With NPM
+$ npm install @eliasgcf/unform-components-web
+
+# With Yarn
+$ yarn add @eliasgcf/unform-components-web
+```
+
+### Mobile (React Native)
+
+```bash
+# With NPM
+$ npm install @eliasgcf/unform-components-mobile
+
+# With Yarn
+$ yarn add @eliasgcf/unform-components-mobile
 ```
 
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React from 'react';
+import { Input as UInput} from '@eliasgcf/unform-components';
+import { useField } from '@unform/core';
 
-import MyComponent from '@eliasgcf/unform-components'
-import '@eliasgcf/unform-components/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+interface InputProps {
+  name: string;
 }
+
+const Input: React.FC<InputProps> = ({ name }) => {
+  const { fieldName, registerField, defaultValue = '', error } = useField(name);
+
+  return (
+    <>
+      <UInput  name={name} unformProps={{ fieldName, registerField, defaultValue }} />
+      {error && <p>{error}</p>}
+    </>
+  );
+}
+
+export default Input;
 ```
 
 ## License
