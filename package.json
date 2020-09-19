@@ -14,6 +14,7 @@
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@commitlint/cli": "^11.0.0",
+    "@react-native-community/checkbox": "^0.5.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -43,6 +44,6 @@
     "react-dom": "^16.13.1",
     "react-native": "^0.63.2",
     "react-scripts": "^3.4.1",
-    "typescript": "^3.7.5"
+    "typescript": "^4.0.3"
   }
 }
