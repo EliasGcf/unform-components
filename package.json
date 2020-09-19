@@ -14,6 +14,7 @@
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@commitlint/cli": "^11.0.0",
+    "@react-native-community/checkbox": "^0.5.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
