@@ -1,4 +1,5 @@
-import React, { InputHTMLAttributes, useEffect, useRef } from 'react';
+/* eslint-disable react/jsx-fragments */
+import React, { Fragment, InputHTMLAttributes, useEffect, useRef } from 'react';
 import UnformPropsDTO from './dtos/UnformPropsDTO';
 
 export interface CheckboxOption {
@@ -14,7 +15,7 @@ interface InputProps
   options: CheckboxOption[];
 }
 
-const Checkbox: React.FC<InputProps> = ({
+export const Checkbox: React.FC<InputProps> = ({
   unformProps: { fieldName, registerField, defaultValue = [] },
   options,
   className,
@@ -43,7 +44,7 @@ const Checkbox: React.FC<InputProps> = ({
   }, [fieldName, registerField]);
 
   return (
-    <>
+    <Fragment>
       {options.map(option => (
         <label htmlFor={option.id} key={option.id} className={className}>
           <input
@@ -57,8 +58,6 @@ const Checkbox: React.FC<InputProps> = ({
           {option.label}
         </label>
       ))}
-    </>
+    </Fragment>
   );
 };
-
-export default Checkbox;
