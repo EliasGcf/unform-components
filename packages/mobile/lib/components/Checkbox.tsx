@@ -1,4 +1,10 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  useCallback,
+  Fragment,
+} from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -35,7 +41,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox: React.FC<CheckboxProps> = ({
   name,
   options,
   containerStyle,
@@ -43,14 +49,16 @@ const Checkbox: React.FC<CheckboxProps> = ({
   ...rest
 }) => {
   const inputRefs = useRef<InputRefProps[]>([]);
-  const { fieldName, registerField, defaultValue = [] } = useField(name);
+  const { fieldName, registerField, defaultValue } = useField(name);
 
-  const [checkedValues, setCheckedValues] = useState<string[]>(defaultValue);
+  const [checkedValues, setCheckedValues] = useState<string[] | undefined>(
+    defaultValue as string[],
+  );
 
   useEffect(() => {
     inputRefs.current.forEach((ref, index) => {
       ref.value = options[index].value;
-      ref.checked = checkedValues.includes(options[index].value);
+      ref.checked = !!checkedValues?.includes(options[index].value);
     });
   }, [checkedValues, options]);
 
@@ -58,9 +66,12 @@ const Checkbox: React.FC<CheckboxProps> = ({
     (isChecked: boolean, optionValue: string) => {
       setCheckedValues(state => {
         if (isChecked) {
-          return [...state, optionValue];
+          if (state) return [...state, optionValue];
+
+          return [optionValue];
         }
-        return state.filter(value => value !== optionValue);
+
+        return state?.filter(value => value !== optionValue);
       });
     },
     [],
@@ -81,25 +92,25 @@ const Checkbox: React.FC<CheckboxProps> = ({
   }, [fieldName, registerField]);
 
   return (
-    <>
-      {options.map(option => (
+    <Fragment>
+      {options.map((option, index) => (
         <View
           key={option.value}
           style={[styles.checkboxContainer, containerStyle]}
         >
           <RNCheckbox
-            value={checkedValues.includes(option.value)}
+            value={checkedValues?.includes(option.value)}
             onValueChange={(isChecked: boolean) => {
               handleToggleOption(isChecked, option.value);
             }}
-            ref={(ref: InputRefProps) => ref && inputRefs.current.push(ref)}
+            ref={(ref: InputRefProps) => {
+              ref && (inputRefs.current[index] = ref);
+            }}
             {...rest}
           />
-          <Text style={[labelStyle]}>{option.label}</Text>
+          <Text style={labelStyle}>{option.label}</Text>
         </View>
       ))}
-    </>
+    </Fragment>
   );
 };
-
-export default Checkbox;

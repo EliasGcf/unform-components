@@ -1,22 +1,18 @@
+import { useField } from '@unform/core';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { TextInputProps, TextInput as RNTextInput } from 'react-native';
-import UnformPropsDTO from './dtos/UnformPropsDTO';
 
 interface InputProps extends TextInputProps {
   name: string;
-  unformProps: UnformPropsDTO;
 }
 
 interface InputRefProps extends RNTextInput {
   value: string;
 }
 
-const TextInput: React.FC<InputProps> = ({
-  unformProps: { fieldName, registerField, defaultValue = '' },
-  onChangeText,
-  ...rest
-}) => {
+const TextInput: React.FC<InputProps> = ({ name, onChangeText, ...rest }) => {
   const inputRef = useRef<InputRefProps>(null);
+  const { registerField, fieldName, defaultValue } = useField(name);
 
   useEffect(() => {
     if (inputRef.current) inputRef.current.value = defaultValue;
