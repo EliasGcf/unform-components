@@ -4,11 +4,13 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/*",
+      "packages/web/example"
     ]
   },
   "scripts": {
     "web": "yarn workspace @eliasgcf/unform-components-web",
+    "web:example": "yarn workspace @eliasgcf/unform-components-web-example",
     "mobile": "yarn workspace @eliasgcf/unform-components-mobile"
   },
   "devDependencies": {
