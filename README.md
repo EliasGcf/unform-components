@@ -28,19 +28,18 @@ $ yarn add @eliasgcf/unform-components-mobile
 
 ```tsx
 import React from 'react';
-import { Input as UInput} from '@eliasgcf/unform-components';
-import { useField } from '@unform/core';
+import { Input as UInput, useError } from '@eliasgcf/unform-components';
 
 interface InputProps {
   name: string;
 }
 
 const Input: React.FC<InputProps> = ({ name }) => {
-  const { fieldName, registerField, defaultValue = '', error } = useField(name);
+  const error = useError(name);
 
   return (
     <>
-      <UInput  name={name} unformProps={{ fieldName, registerField, defaultValue }} />
+      <UInput  name={name} />
       {error && <p>{error}</p>}
     </>
   );
