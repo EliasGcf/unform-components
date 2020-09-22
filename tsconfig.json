@@ -20,7 +20,11 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "baseUrl": ".",
+    "paths": {
+      "@mobile": ["packages/mobile/lib"],
+      "@web": ["packages/web/lib"]
+    }
   },
   "include": ["packages/**/*"],
-  "exclude": ["node_modules", "packages/**/__tests__", "dist"]
+  "exclude": ["node_modules", "dist"]
 }
