@@ -28,7 +28,7 @@ $ yarn add @eliasgcf/unform-components-mobile
 
 ```tsx
 import React from 'react';
-import { Input as UInput, useError } from '@eliasgcf/unform-components';
+import { Input as UInput, useError } from '@eliasgcf/unform-components-web';
 
 interface InputProps {
   name: string;
