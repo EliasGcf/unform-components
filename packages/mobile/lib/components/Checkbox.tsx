@@ -8,14 +8,16 @@ import {
   ViewStyle,
 } from 'react-native';
 import { useField } from '@unform/core';
-import RNCheckbox, { CheckBoxProps } from '@react-native-community/checkbox';
+import RNCheckbox, {
+  CheckBoxProps as RNCheckboxProps,
+} from '@react-native-community/checkbox';
 
 export interface CheckboxOption {
   value: string;
   label: string;
 }
 
-interface CheckboxProps extends CheckBoxProps {
+interface CheckboxProps extends RNCheckboxProps {
   name: string;
   options: CheckboxOption[];
   containerStyle?: StyleProp<ViewStyle>;
@@ -40,19 +42,18 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   options,
   containerStyle,
   labelStyle,
+  onValueChange,
   ...rest
 }) => {
   const inputRefs = useRef<InputRefProps[]>([]);
-  const { fieldName, registerField, defaultValue } = useField(name);
+  const { fieldName, registerField, defaultValue = [] } = useField(name);
 
-  const [checkedValues, setCheckedValues] = useState<string[] | undefined>(
-    defaultValue as string[],
-  );
+  const [checkedValues, setCheckedValues] = useState<string[]>(defaultValue);
 
   useEffect(() => {
     inputRefs.current.forEach((ref, index) => {
       ref.value = options[index].value;
-      ref.checked = !!checkedValues?.includes(options[index].value);
+      ref.checked = checkedValues.includes(options[index].value);
     });
   }, [checkedValues, options]);
 
@@ -60,12 +61,10 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     (isChecked: boolean, optionValue: string) => {
       setCheckedValues(state => {
         if (isChecked) {
-          if (state) return [...state, optionValue];
-
-          return [optionValue];
+          return [...state, optionValue];
         }
 
-        return state?.filter(value => value !== optionValue);
+        return state.filter(value => value !== optionValue);
       });
     },
     [],
@@ -78,10 +77,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       getValue: (refs: InputRefProps[]) => {
         return refs.filter(ref => ref.checked).map(ref => ref.value);
       },
+      setValue: (_, values: string[]) => setCheckedValues(values),
       clearValue: () => setCheckedValues([]),
-      setValue: (_, values) => {
-        setCheckedValues(values);
-      },
     });
   }, [fieldName, registerField]);
 
@@ -93,12 +90,13 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           style={[styles.checkboxContainer, containerStyle]}
         >
           <RNCheckbox
-            value={checkedValues?.includes(option.value)}
-            onValueChange={(isChecked: boolean) => {
-              handleToggleOption(isChecked, option.value);
-            }}
             ref={(ref: InputRefProps) => {
               ref && (inputRefs.current[index] = ref);
+            }}
+            value={checkedValues.includes(option.value)}
+            onValueChange={(isChecked: boolean) => {
+              handleToggleOption(isChecked, option.value);
+              onValueChange && onValueChange(isChecked);
             }}
             {...rest}
           />
