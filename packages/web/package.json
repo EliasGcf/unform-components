@@ -16,7 +16,8 @@
     "node": ">=10"
   },
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "test": "__tests__"
   },
   "peerDependencies": {
     "@unform/core": "^2.1.3",
