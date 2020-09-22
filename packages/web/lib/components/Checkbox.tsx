@@ -1,4 +1,4 @@
-import React, { Fragment, InputHTMLAttributes, useEffect, useRef } from 'react';
+import React, { InputHTMLAttributes, useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 
 export interface CheckboxOption {
@@ -43,7 +43,7 @@ export const Checkbox: React.FC<InputProps> = ({
   }, [fieldName, registerField]);
 
   return (
-    <Fragment>
+    <>
       {options.map((option, index) => (
         <label htmlFor={option.id} key={option.id} className={className}>
           <input
@@ -57,6 +57,6 @@ export const Checkbox: React.FC<InputProps> = ({
           {option.label}
         </label>
       ))}
-    </Fragment>
+    </>
   );
 };

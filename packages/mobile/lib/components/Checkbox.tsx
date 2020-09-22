@@ -1,10 +1,4 @@
-import React, {
-  useRef,
-  useEffect,
-  useState,
-  useCallback,
-  Fragment,
-} from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -92,7 +86,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   }, [fieldName, registerField]);
 
   return (
-    <Fragment>
+    <>
       {options.map((option, index) => (
         <View
           key={option.value}
@@ -111,6 +105,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           <Text style={labelStyle}>{option.label}</Text>
         </View>
       ))}
-    </Fragment>
+    </>
   );
 };

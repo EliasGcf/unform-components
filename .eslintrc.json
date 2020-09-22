@@ -32,7 +32,6 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "react/jsx-props-no-spreading": "off",
-    "react/jsx-fragments": "off",
     "no-unused-expressions": "off",
     "no-param-reassign": "off",
     "no-return-assign": "off",
