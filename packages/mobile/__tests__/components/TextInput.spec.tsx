@@ -49,6 +49,8 @@ describe('TextInput', () => {
       </Form>,
     );
 
+    expect(formRef.current?.getFieldValue('test-input')).toBe('John Doe');
+
     formRef.current?.clearField('test-input');
     formRef.current?.submitForm();
 

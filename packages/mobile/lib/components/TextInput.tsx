@@ -10,13 +10,19 @@ interface InputRefProps extends RNTextInput {
   value: string;
 }
 
-const TextInput: React.FC<InputProps> = ({ name, onChangeText, ...rest }) => {
+const TextInput: React.FC<InputProps> = ({
+  name,
+  onChangeText,
+  defaultValue: RNDefaultValue,
+  ...rest
+}) => {
   const inputRef = useRef<InputRefProps>(null);
   const { registerField, fieldName, defaultValue = '' } = useField(name);
 
   useEffect(() => {
-    if (inputRef.current) inputRef.current.value = defaultValue;
-  }, [defaultValue]);
+    if (inputRef.current)
+      inputRef.current.value = RNDefaultValue || defaultValue;
+  }, [defaultValue, RNDefaultValue]);
 
   useEffect(() => {
     registerField<string>({
@@ -45,7 +51,7 @@ const TextInput: React.FC<InputProps> = ({ name, onChangeText, ...rest }) => {
   return (
     <RNTextInput
       ref={inputRef}
-      defaultValue={defaultValue}
+      defaultValue={RNDefaultValue || defaultValue}
       onChangeText={UnformOnChangeText}
       {...rest}
     />
