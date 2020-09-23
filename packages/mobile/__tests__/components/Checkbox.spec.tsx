@@ -50,10 +50,18 @@ describe('Checkbox', () => {
 
   it('should clear the value on clearValue function', () => {
     render(
-      <Form ref={formRef} onSubmit={submitMock}>
+      <Form
+        ref={formRef}
+        onSubmit={submitMock}
+        initialData={{ 'test-input': [options[0].value] }}
+      >
         <Checkbox name="test-input" options={options} />
       </Form>,
     );
+
+    expect(formRef.current?.getFieldValue('test-input')).toMatchObject([
+      options[0].value,
+    ]);
 
     act(() => formRef.current?.clearField('test-input'));
 
