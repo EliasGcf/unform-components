@@ -90,6 +90,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           style={[styles.checkboxContainer, containerStyle]}
         >
           <RNCheckbox
+            testID={`checkbox-${index}`}
             ref={(ref: InputRefProps) => {
               ref && (inputRefs.current[index] = ref);
             }}
