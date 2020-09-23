@@ -6,10 +6,11 @@ import { FormHandles } from '@unform/core';
 import { TextInput } from '@mobile';
 
 const submitMock = jest.fn(data => data);
+const formRef: RefObject<FormHandles> = { current: null };
 
 describe('TextInput', () => {
   it('should get the value on submitForm', () => {
-    const formRef: RefObject<FormHandles> = { current: null };
+    // const formRef: RefObject<FormHandles> = { current: null };
 
     const { getByPlaceholderText } = render(
       <Form ref={formRef} onSubmit={submitMock}>
@@ -25,7 +26,7 @@ describe('TextInput', () => {
   });
 
   it('should set the value on setValue function', () => {
-    const formRef: RefObject<FormHandles> = { current: null };
+    // const formRef: RefObject<FormHandles> = { current: null };
 
     render(
       <Form ref={formRef} onSubmit={submitMock}>
@@ -40,7 +41,7 @@ describe('TextInput', () => {
   });
 
   it('should clear the value on clearValue function', () => {
-    const formRef: RefObject<FormHandles> = { current: null };
+    // const formRef: RefObject<FormHandles> = { current: null };
 
     render(
       <Form ref={formRef} onSubmit={submitMock}>
@@ -55,7 +56,7 @@ describe('TextInput', () => {
   });
 
   it('should to receive the value from initialData', () => {
-    const formRef: RefObject<FormHandles> = { current: null };
+    // const formRef: RefObject<FormHandles> = { current: null };
 
     render(
       <Form
