@@ -2,7 +2,7 @@ import { useField } from '@unform/core';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { TextInputProps, TextInput as RNTextInput } from 'react-native';
 
-interface InputProps extends TextInputProps {
+interface InputProps extends Omit<TextInputProps, 'value'> {
   name: string;
 }
 
@@ -12,7 +12,7 @@ interface InputRefProps extends RNTextInput {
 
 const TextInput: React.FC<InputProps> = ({ name, onChangeText, ...rest }) => {
   const inputRef = useRef<InputRefProps>(null);
-  const { registerField, fieldName, defaultValue } = useField(name);
+  const { registerField, fieldName, defaultValue = '' } = useField(name);
 
   useEffect(() => {
     if (inputRef.current) inputRef.current.value = defaultValue;
