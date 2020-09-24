@@ -7,17 +7,20 @@ jobs:
     name: Lint commit messages
     runs-on: ubuntu-latest
 
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
-   
+
     - name: Install Node.js
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
-    
+
     - name: Get Yarn cache
       uses: c-hive/gha-yarn-cache@v1
 
