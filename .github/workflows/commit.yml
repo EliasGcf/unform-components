@@ -1,0 +1,28 @@
+name: Lint commit
+
+on: pull_request
+
+jobs:
+  commit:
+    name: Lint commit messages
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+   
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    
+    - name: Get Yarn cache
+      uses: c-hive/gha-yarn-cache@v1
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Check commit message
+      uses: wagoid/commitlint-github-action@v1
