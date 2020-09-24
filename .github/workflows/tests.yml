@@ -1,11 +1,9 @@
 name: Run Tests
 
-on:
-  push:
-    branches: [ develop ]
+on: pull_request
     
 jobs:
-  build:
+  code:
     runs-on: ubuntu-latest
 
     steps:
