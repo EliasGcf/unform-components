@@ -2,6 +2,8 @@
 
 <h2 align="center">🚧 Under development 🚧</h2>
 
+<a href='https://coveralls.io/github/EliasGcf/unform-components'><img src='https://coveralls.io/repos/github/EliasGcf/unform-components/badge.svg' alt='Coverage Status' /></a>
+
 > Made with create-react-library
 
 ## Install
