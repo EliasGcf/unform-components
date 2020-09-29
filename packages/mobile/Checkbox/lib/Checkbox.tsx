@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Checkbox: React.FC<CheckboxProps> = ({
+const Checkbox: React.FC<CheckboxProps> = ({
   name,
   options,
   containerStyle,
@@ -107,3 +107,5 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     </>
   );
 };
+
+export default Checkbox;

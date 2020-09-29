@@ -3,7 +3,7 @@ import { render, act, fireEvent } from '@testing-library/react-native';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
 
-import { Checkbox, CheckboxOption } from '@mobile';
+import Checkbox, { CheckboxOption } from '@mobile/Checkbox';
 
 const submitMock = jest.fn(data => data);
 const formRef: RefObject<FormHandles> = { current: null };

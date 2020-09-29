@@ -3,7 +3,7 @@ import { render, fireEvent } from '@testing-library/react-native';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
 
-import { TextInput } from '@mobile';
+import TextInput from '@mobile/TextInput';
 
 const submitMock = jest.fn(data => data);
 const formRef: RefObject<FormHandles> = { current: null };

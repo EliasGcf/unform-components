@@ -3,7 +3,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 
-import { Input } from '@web';
+import Input from '@web/Input';
 
 const submitMock = jest.fn(data => data);
 const formRef: RefObject<FormHandles> = { current: null };
