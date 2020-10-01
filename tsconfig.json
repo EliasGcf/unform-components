@@ -21,8 +21,8 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@mobile": ["packages/mobile/lib"],
-      "@web": ["packages/web/lib"]
+      "@mobile/*": ["packages/mobile/*/lib"],
+      "@web/*": ["packages/web/*/lib"]
     }
   },
   "include": ["packages/**/*"],

@@ -3,7 +3,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 
-import { Checkbox, CheckboxOption } from '@web';
+import Checkbox, { CheckboxOption } from '@web/Checkbox';
 
 const submitMock = jest.fn(data => data);
 const formRef: RefObject<FormHandles> = { current: null };

@@ -1,17 +1,17 @@
 {
   "name": "unform-components",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/**/*"
     ]
   },
   "scripts": {
     "web": "yarn workspace @eliasgcf/unform-components-web",
     "mobile": "yarn workspace @eliasgcf/unform-components-mobile",
     "prebuild": "lerna exec --parallel -- rimraf dist typings",
-    "build": "lerna exec --parallel -- rollup -c ../../rollup.config.js",
+    "build": "lerna exec --parallel -- rollup -c ../../../rollup.config.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "coveralls": "coveralls < coverage/lcov.info",

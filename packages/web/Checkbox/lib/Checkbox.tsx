@@ -13,7 +13,7 @@ interface InputProps
   options: CheckboxOption[];
 }
 
-export const Checkbox: React.FC<InputProps> = ({
+const Checkbox: React.FC<InputProps> = ({
   name,
   options,
   className,
@@ -60,3 +60,5 @@ export const Checkbox: React.FC<InputProps> = ({
     </>
   );
 };
+
+export default Checkbox;
