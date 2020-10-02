@@ -21,6 +21,7 @@
 
 - [TextInput](./packages/mobile/TextInput/README.md)
 - [Checkbox](./packages/mobile/Checkbox/README.md)
+- [Picker](./packages/mobile/Picker/README.md)
 
 ## 🤔 How to contribute
 
