@@ -30,6 +30,4 @@ const App: React.FC = () => {
     </Form>
   );
 }
-
-export default App;
 ```
