@@ -1,57 +1,60 @@
-# @eliasgcf/unform-components-(web || mobile)
+# @unform-components-(web || mobile)
 
 <h2 align="center">🚧 Under development 🚧</h2>
 
-<a href='https://coveralls.io/github/EliasGcf/unform-components'><img src='https://coveralls.io/repos/github/EliasGcf/unform-components/badge.svg' alt='Coverage Status' /></a>
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/EliasGcf/unform-components">
+  <a href="https://www.linkedin.com/in/eliasgcf/" target="_blank" rel="noopener noreferrer"><img alt="Made by" src="https://img.shields.io/badge/made%20by-Elias%20Gabriel-%239466FF"></a>
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/EliasGcf/unform-components">
+  <a href="https://github.com/EliasGcf/unform-components/commits/master"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/EliasGcf/unform-components"></a>
+  <a href="https://github.com/EliasGcf/unform-components/issues"><img alt="Repository issues" src="https://img.shields.io/github/issues/EliasGcf/unform-components"></a>
+  <img alt="GitHub" src="https://img.shields.io/github/license/EliasGcf/unform-components">
+  <a href='https://coveralls.io/github/EliasGcf/unform-components'><img src='https://coveralls.io/repos/github/EliasGcf/unform-components/badge.svg' alt='Coverage Status' /></a>
+</p>
 
-> Made with create-react-library
+## Web (ReactJS)
 
-## Install
+- [Input](./packages/web/Input/README.md)
+- [Checkbox](./packages/web/Checkbox/README.md)
 
-### Web (ReactJS)
+## Mobile (React Native)
+
+- [TextInput](./packages/mobile/TextInput/README.md)
+- [Checkbox](./packages/mobile/Checkbox/README.md)
+
+## 🤔 How to contribute
+
+**Make a fork of this repository**
 
 ```bash
-# With NPM
-$ npm install @eliasgcf/unform-components-web
+# Fork using GitHub official command line
+# If you don't have the GitHub CLI, use the web site to do that.
 
-# With Yarn
-$ yarn add @eliasgcf/unform-components-web
+$ gh repo fork EliasGcf/unform-components
 ```
 
-### Mobile (React Native)
+**Follow the steps below**
 
 ```bash
-# With NPM
-$ npm install @eliasgcf/unform-components-mobile
+# Clone your fork
+$ git clone your-fork-url && cd unform-components
 
-# With Yarn
-$ yarn add @eliasgcf/unform-components-mobile
+# Create a branch with your feature
+$ git checkout -b my-feature
+
+# Make the commit with your changes
+$ git commit -m 'feat: My new feature'
+
+# Send the code to your remote branch
+$ git push origin my-feature
 ```
 
-## Usage
+After your pull request is merged, you can delete your branch
 
-```tsx
-import React from 'react';
-import { Input as UInput, useError } from '@eliasgcf/unform-components-web';
+## 📝 License
 
-interface InputProps {
-  name: string;
-}
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-const Input: React.FC<InputProps> = ({ name }) => {
-  const error = useError(name);
+---
 
-  return (
-    <>
-      <UInput  name={name} />
-      {error && <p>{error}</p>}
-    </>
-  );
-}
-
-export default Input;
-```
-
-## License
-
-MIT © [EliasGcf](https://github.com/EliasGcf)
+Made with 💜 &nbsp;by Elias Gabriel 👋 &nbsp;[See my linkedin](https://www.linkedin.com/in/eliasgcf/)
