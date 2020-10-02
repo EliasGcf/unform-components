@@ -2,7 +2,7 @@ import { useField } from '@unform/core';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { TextInputProps, TextInput as RNTextInput } from 'react-native';
 
-interface InputProps extends Omit<TextInputProps, 'value'> {
+interface InputProps extends Omit<TextInputProps, 'value' | 'defaultValue'> {
   name: string;
 }
 
@@ -10,19 +10,13 @@ interface InputRefProps extends RNTextInput {
   value: string;
 }
 
-const TextInput: React.FC<InputProps> = ({
-  name,
-  onChangeText,
-  defaultValue: RNDefaultValue,
-  ...rest
-}) => {
+const TextInput: React.FC<InputProps> = ({ name, onChangeText, ...rest }) => {
   const inputRef = useRef<InputRefProps>(null);
   const { registerField, fieldName, defaultValue = '' } = useField(name);
 
   useEffect(() => {
-    if (inputRef.current)
-      inputRef.current.value = RNDefaultValue || defaultValue;
-  }, [defaultValue, RNDefaultValue]);
+    if (inputRef.current) inputRef.current.value = defaultValue;
+  }, [defaultValue]);
 
   useEffect(() => {
     registerField<string>({
@@ -51,7 +45,7 @@ const TextInput: React.FC<InputProps> = ({
   return (
     <RNTextInput
       ref={inputRef}
-      defaultValue={RNDefaultValue || defaultValue}
+      defaultValue={defaultValue}
       onChangeText={UnformOnChangeText}
       {...rest}
     />

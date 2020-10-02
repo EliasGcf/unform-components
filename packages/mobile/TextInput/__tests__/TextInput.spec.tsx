@@ -44,8 +44,12 @@ describe('TextInput', () => {
     // const formRef: RefObject<FormHandles> = { current: null };
 
     render(
-      <Form ref={formRef} onSubmit={submitMock}>
-        <TextInput name="test-input" defaultValue="John Doe" />
+      <Form
+        ref={formRef}
+        onSubmit={submitMock}
+        initialData={{ 'test-input': 'John Doe' }}
+      >
+        <TextInput name="test-input" />
       </Form>,
     );
 
