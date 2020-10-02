@@ -4,7 +4,7 @@ const { compilerOptions } = require('./tsconfig.json');
 module.exports = {
   bail: true,
   clearMocks: true,
-  collectCoverage: true,
+  collectCoverage: false,
   collectCoverageFrom: [
     'packages/**/*/lib/**/*.{js,ts,tsx}',
     'packages/**/*/lib/*.{js,ts,tsx}',
