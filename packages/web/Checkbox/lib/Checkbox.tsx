@@ -2,13 +2,15 @@ import React, { InputHTMLAttributes, useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 
 export interface CheckboxOption {
-  id: string;
   value: string;
   label: string;
 }
 
 interface InputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  extends Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'type' | 'defaultChecked'
+  > {
   name: string;
   options: CheckboxOption[];
 }
@@ -34,9 +36,9 @@ const Checkbox: React.FC<InputProps> = ({
           ref.checked = false;
         });
       },
-      setValue: (refs: HTMLInputElement[], ids) => {
+      setValue: (refs: HTMLInputElement[], values) => {
         refs.forEach(ref => {
-          if (ids.includes(ref.id)) ref.checked = true;
+          if (values.includes(ref.value)) ref.checked = true;
         });
       },
     });
@@ -45,12 +47,12 @@ const Checkbox: React.FC<InputProps> = ({
   return (
     <>
       {options.map((option, index) => (
-        <label htmlFor={option.id} key={option.id} className={className}>
+        <label htmlFor={option.value} key={option.value} className={className}>
           <input
-            defaultChecked={defaultValue?.includes(option.id)}
+            defaultChecked={defaultValue?.includes(option.value)}
             ref={ref => ref && (inputRefs.current[index] = ref)}
             value={option.value}
-            id={option.id}
+            id={option.value}
             type="checkbox"
             {...rest}
           />

@@ -8,8 +8,8 @@ import Checkbox, { CheckboxOption } from '@web/Checkbox';
 const submitMock = jest.fn(data => data);
 const formRef: RefObject<FormHandles> = { current: null };
 const options: CheckboxOption[] = [
-  { id: 'value-1', value: 'value-1', label: 'Value 1' },
-  { id: 'value-2', value: 'value-2', label: 'Value 2' },
+  { value: 'value-1', label: 'Value 1' },
+  { value: 'value-2', label: 'Value 2' },
 ];
 
 describe('Checkbox', () => {
