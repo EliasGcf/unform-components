@@ -2,7 +2,7 @@
 
 ## Installation
 
-**⚠️ First, you need to install [react-native-checkbox](https://github.com/react-native-community/react-native-checkbox) from react-native-community.**
+⚠️ &nbsp;**First, you need to install [react-native-checkbox](https://github.com/react-native-community/react-native-checkbox) from react-native-community.**
 
 ```bash
 # With NPM
