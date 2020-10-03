@@ -1,15 +1,15 @@
-# @unform-components-mobile/checkbox
+# @unform-components-mobile/picker
 
 ## Installation
 
-⚠️ &nbsp;**First, you need to install [react-native-checkbox](https://github.com/react-native-community/react-native-checkbox) from react-native-community.**
+⚠️ &nbsp;**First, you need to install [react-native-picker](https://github.com/react-native-community/react-native-picker) from react-native-community.**
 
 ```bash
 # With NPM
-$ npm install @unform-components-mobile/checkbox
+$ npm install @unform-components-mobile/picker
 
 # With Yarn
-$ yarn add @unform-components-mobile/checkbox
+$ yarn add @unform-components-mobile/picker
 ```
 
 ## Usage Example
@@ -19,24 +19,24 @@ import React, { useRef } from 'react';
 import { Button } from 'react-native';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
-import Checkbox from '@unform-components-mobile/checkbox';
+import Picker, { PickerOption } from '@unform-components-mobile/picker';
 
 const App: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const checkboxOptions = [
+  const pickerOptions: PickerOption[] = [
     { value: 'rocketseat', label: 'Rocketseat' },
     { value: 'eliasgcf', label: 'EliasGcf' },
   ];
 
   function handleSubmit(data) {
     console.log(data);
-    // { users: ['rocketseat', 'eliasgcf'] }
+    // { user: 'rocketseat' }
   }
 
   return (
     <Form ref={formRef} onSubmit={handleSubmit}>
-      <Checkbox name="users" options={checkboxOptions} />
+      <Picker name="user" options={pickerOptions} />
       <Button title="Send" onPress={() => formRef.current?.submitForm()} />
     </Form>
   );
@@ -50,28 +50,28 @@ import React, { useRef } from 'react';
 import { Button } from 'react-native';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
-import Checkbox from '@unform-components-mobile/checkbox';
+import Picker, { PickerOption } from '@unform-components-mobile/picker';
 
 const App: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const checkboxOptions = [
+  const pickerOptions: PickerOption[] = [
     { value: 'rocketseat', label: 'Rocketseat' },
     { value: 'eliasgcf', label: 'EliasGcf' },
   ];
 
   function handleSubmit(data) {
     console.log(data);
-    // { users: ['rocketseat'] }
+    // { user: 'eliasgcf' }
   }
 
   return (
     <Form
       ref={formRef}
       onSubmit={handleSubmit}
-      initialData={{ users: ['rocketseat'] }}
+      initialData={{ user: 'eliasgcf' }}
     >
-      <Checkbox name="users" options={checkboxOptions} />
+      <Picker name="user" options={pickerOptions} />
       <Button title="Send" onPress={() => formRef.current?.submitForm()} />
     </Form>
   );
@@ -85,27 +85,27 @@ import React, { useRef } from 'react';
 import { Button } from 'react-native';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
-import Checkbox from '@unform-components-mobile/checkbox';
+import Picker, { PickerOption } from '@unform-components-mobile/picker';
 
 const App: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const checkboxOptions = [
+  const pickerOptions: PickerOption[] = [
     { value: 'rocketseat', label: 'Rocketseat' },
     { value: 'eliasgcf', label: 'EliasGcf' },
   ];
 
   function handleSubmit(data) {
     console.log(data);
-    // { users: ['eliasgcf'] }
+    // { user: 'eliasgcf' }
   }
 
   return (
     <Form ref={formRef} onSubmit={handleSubmit}>
-      <Checkbox name="users" options={checkboxOptions} />
+      <Picker name="user" options={pickerOptions} />
       <Button
         title="SetValue"
-        onPress={() => formRef.current?.setFieldValue('users', ['eliasgcf'])}
+        onPress={() => formRef.current?.setFieldValue('user', 'eliasgcf')}
       />
 
       <Button title="Send" onPress={() => formRef.current?.submitForm()} />

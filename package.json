@@ -21,6 +21,7 @@
     "@babel/core": "^7.11.6",
     "@commitlint/cli": "^11.0.0",
     "@react-native-community/checkbox": "^0.5.3",
+    "@react-native-community/picker": "^1.8.0",
     "@rollup/plugin-babel": "^5.2.1",
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
