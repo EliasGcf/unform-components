@@ -24,6 +24,22 @@
 - [Checkbox](./packages/mobile/Checkbox/README.md)
 - [Picker](./packages/mobile/Picker/README.md)
 
+## Get Unform input error using this components
+
+To do that, you need to create a function (hook) and used on your componet.
+
+```ts
+// useError
+import { FormContext } from '@unform/core';
+import { useContext } from 'react';
+
+export default function useError(name: string): string | undefined {
+  const { errors, scopePath } = useContext(FormContext);
+
+  return errors[scopePath ? `${scopePath}.${name}` : name];
+}
+```
+
 ## 🤔 How to contribute
 
 **Make a fork of this repository**
