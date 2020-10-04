@@ -1,0 +1,42 @@
+{
+  "name": "@unform-components-web/radio",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Web React Radio Input component to use with Unform",
+  "author": "Elias Gabriel <eliasgabrielcf@gmail.com>",
+  "homepage": "https://github.com/EliasGcf/unform-components#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "typings/index.d.ts",
+  "scripts": {
+    "deploy": "npm publish --access public",
+    "test": "jest"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "peerDependencies": {
+    "@unform/core": "^2.1.3",
+    "react": "^16.8.0"
+  },
+  "files": [
+    "dist",
+    "typings"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EliasGcf/unform-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EliasGcf/unform-components/issues"
+  },
+  "devDependencies": {
+    "@unform/web": "^2.1.3",
+    "@testing-library/react": "^9.5.0"
+  }
+}
